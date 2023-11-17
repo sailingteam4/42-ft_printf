@@ -12,7 +12,7 @@ OBJ	= $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME):$(OBJ) wait
+$(NAME):$(OBJ)
 	@ar rcs $(NAME) $(OBJ)
 	@echo "libftprintf compilation complete."
 
@@ -29,7 +29,7 @@ fclean:	clean
 
 re:	fclean all
 
-wait:
+wait: all
 	@echo "\r\n"
 	@echo "\r\n"
 	@echo "\r\n"
