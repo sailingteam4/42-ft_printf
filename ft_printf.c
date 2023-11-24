@@ -68,13 +68,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (print_length);
 }
-
-#include <stdio.h>
-//main to test my printf
-
-int	main(void)
-{
-	printf("original printf : %d\n", printf("%"));
-	ft_printf("my printf <3 : %d\n", ft_printf("%"));
-	return (0);
-}
