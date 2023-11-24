@@ -53,6 +53,11 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
+			if (str[i + 1] == '\0')
+			{
+				va_end(args);
+				return (-1);
+			}
 			print_length += ft_formats(args, str[i + 1]);
 			i++;
 		}
@@ -62,4 +67,14 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (print_length);
+}
+
+#include <stdio.h>
+//main to test my printf
+
+int	main(void)
+{
+	printf("original printf : %d\n", printf("%"));
+	ft_printf("my printf <3 : %d\n", ft_printf("%"));
+	return (0);
 }
