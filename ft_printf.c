@@ -6,7 +6,7 @@
 /*   By: nrontey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 19:31:32 by nrontey           #+#    #+#             */
-/*   Updated: 2023/11/17 15:17:44 by nrontey          ###   ########.fr       */
+/*   Updated: 2023/11/28 15:30:33 by nrontey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,20 @@ int	ft_formats(va_list args, const char format)
 	return (print_length);
 }
 
+int	final_stop(va_list args)
+{
+	va_end(args);
+	return (-1);
+}
+
 int	ft_printf(const char *str, ...)
 {
 	int		i;
 	va_list	args;
 	int		print_length;
 
+	if (!str)
+		return (-1);
 	i = 0;
 	print_length = 0;
 	va_start(args, str);
@@ -54,10 +62,7 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			if (str[i + 1] == '\0')
-			{
-				va_end(args);
-				return (-1);
-			}
+				return (final_stop(args));
 			print_length += ft_formats(args, str[i + 1]);
 			i++;
 		}

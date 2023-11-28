@@ -26,6 +26,7 @@ int		ft_printnbr(int n);
 int		ft_print_unsigned(unsigned int n);
 int		ft_print_hex(unsigned int num, const char format);
 int		ft_printpercent(void);
+int		final_stop(va_list args);
 
 void	ft_putstr(char *str);
 void	ft_put_ptr(uintptr_t num);
